@@ -151,7 +151,7 @@ class TestProductModel(unittest.TestCase):
         product = ProductFactory(price=Decimal("19.99"))
         product.id = None
         product.create()
-        found = Product.find_by_price(Decimal("19.99"))
+        found = Product.find_by_price(Decimal("19.99")).all()
         self.assertGreaterEqual(len(found), 1)
         self.assertEqual(found[0].price, Decimal("19.99"))
 
